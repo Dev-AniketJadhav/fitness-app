@@ -1,7 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ActivityComponent } from './activity/activity.component';
+import { PastActivityComponent } from './activity/past-activity/past-activity.component';
+import { AuthGuard } from './auth.guard';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LoginComponent } from './user-auth/login/login.component';
+import { SignupComponent } from './user-auth/signup/signup.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'',component: LandingPageComponent},
+  {path: 'login' ,component: LoginComponent},
+  {path:'signup',component:SignupComponent},
+  {path:'activity' ,component:ActivityComponent, canActivate:[AuthGuard] },
+   {path:'past-activity', component:PastActivityComponent}
+
+  
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
