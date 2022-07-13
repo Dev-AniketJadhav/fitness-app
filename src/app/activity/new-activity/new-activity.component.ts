@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-new-activity',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewActivityComponent implements OnInit {
 
+  dtOptions: DataTables.Settings={};
   constructor() { }
 
   ngOnInit(): void {
+    this.dtOptions={
+      ajax:'https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData.json',
+      columns: [{
+        title:'name',
+        data:'value.name'
+      }]
+    };
   }
 
 }

@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="row w-100 justify-content-center text-center mt-5">
+    <div class="col-md-4" >
+     <div class="card card-style" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        <div class="card-title mt-3">
+            <h1>
+                UPPER BODY WORKOUT
+            </h1>
+        </div>
+        <div class="card-img">
+            <img src="/assets/upper-body.png">
+        </div>
+     </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card card-style">
+            <div class="card-title mt-3">
+                <h1>
+                LOWER BODY WORKOUT
+                </h1>
+            </div>
+            <div class="card-img">
+                <img src="/assets/lower-body.png">
+            </div>
+         </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card card-style">
+            <div class="card-title mt-3">
+                <h1>
+                    CARDIO
+                </h1>
+            </div>
+            <div class="card-img">
+                <img src="/assets/cardio.png">
+            </div>
+         </div>
+    </div>
+
+</div>
+<div class="row mt-3 w-100 justify-content-center text-center ">
+   
+    <div class="col-md-4">
+        <div class="card card-style">
+            <div class="card-title mt-3">
+                <h1>
+                    YOGA
+                </h1>
+            </div>
+            <div class="card-img">
+                <img src="/assets/yoga.png">
+            </div>
+         </div>
+    </div>
+
+    <div class="col-md-4 ">
+        <div class="card card-style">
+            <div class="card-title mt-3 ">
+                <h1>
+                    MEDITATION
+                </h1>
+            </div>
+            <div class="card-img">
+                <img src="/assets/meditation.png">
+            </div>
+         </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card card-style">
+            <div class="card-title mt-3">
+                <h1>
+                    FIND HEALTHY DIET
+                </h1>
+            </div>
+            <div class="card-img">
+                <img src="/assets/read.png">
+            </div>
+         </div>
+    </div>
+ 
+</div>
+ 
+</div>
+
+
+<!-- modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade w-100 " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #TrainingData="ngForm" (ngSubmit)="sendData(TrainingData)" >
+                <select class="form-select" aria-label="Default select example" name="Type" #Type="ngModel" [(ngModel)]="FitnessData.Type">
+                    <option selected>Open this select menu</option>
+                    <option value="biceps">biceps</option>
+                    <option value="triceps">triceps</option>
+                    <option value="chest">chest</option>
+                    <option value="shoulder">shoulder</option>
+                  </select>
+                    <div class="select-time">
+                        <label for="time" class="form-label">Choose Time For Exercise</label>
+                        <input type="number" class="form-control" name="time" #time="ngModel" [(ngModel)]="FitnessData.time">
+                    </div>
+                  <div class="spinner w-100 d-flex justify-content-center">
+                    <mat-progress-spinner mode="determinate"  [value]="progress"></mat-progress-spinner>
+                      <p >
+                        {{progress}}%
+                      </p>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+           
+              
+        </div>
+        <div class="modal-footer w-100 d-flex justify-content-center">
+          <button type="button" class="btn btn-danger"  (click)="onStop()">Stop</button>
+          <button type="button" class="btn btn-success" (click)="onStartTraining()">Start</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>

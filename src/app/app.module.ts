@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { NewActivityComponent } from './activity/new-activity/new-activity.component';
 import { PastActivityComponent } from './activity/past-activity/past-activity.component';
+import { StartNewComponent } from './activity/start-new/start-new.component';
+import { DataTablesModule } from "angular-datatables";
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { PastActivityComponent } from './activity/past-activity/past-activity.co
     ActivityComponent,
     NewActivityComponent,
     PastActivityComponent,
+    StartNewComponent,
     
   ],
   imports: [
@@ -31,7 +34,8 @@ import { PastActivityComponent } from './activity/past-activity/past-activity.co
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

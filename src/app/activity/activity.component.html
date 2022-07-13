@@ -1,10 +1,17 @@
 
-<div class="d-flex justify-content-center ">
+<div class=" container d-flex justify-content-center">
 
 
 <mat-tab-group class="text-small">
-    <mat-tab label="First"> <app-new-activity></app-new-activity> </mat-tab>
-    <mat-tab label="Second"> <app-past-activity></app-past-activity></mat-tab>
-    <mat-tab label="Third"> Add Activity </mat-tab>
+    <mat-tab label="Latest Activity"> <app-new-activity></app-new-activity> </mat-tab>
+
+    <mat-tab label="Start New"> 
+        <button class="btn btn-danger w-100 d-flex justify-content-center" routerLink="/start-new">
+            Start Now
+        </button>
+    </mat-tab>
+
+    <mat-tab label="Past Activity"> <app-past-activity></app-past-activity></mat-tab>
+   
   </mat-tab-group>
 </div>

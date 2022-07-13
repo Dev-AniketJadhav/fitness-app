@@ -6,30 +6,35 @@
         
     </div>
     <div class=" col-lg-5 col-md-6  justify-content-center">
-      <div class="card mt-5">
+      <div class="card card-style mt-5">
         <h1 class="card-title text-center text-bold my-3">
           Fitness Login
         </h1>
         <h3 class="card-subtitle text-center mt-3">Login to start your daily routine!</h3>
 
 
-        <form class="card-body mt-3" #LoginForm="ngForm"  (ngSubmit)="onSubmit(LoginForm)">
+        <form class="card-body mt-3" #LoginForm="ngForm"(ngSubmit)="onSubmit(LoginForm)" >
           <div class="card-form  justify-content-center flex-column text-center">
             <p class="text-bold">
               <label for="email ">Email Id</label>
               <input type="email" class="form-control" minlength="5" placeholder="your email" #email ="ngModel"name="email" [(ngModel)]="Login.email" required>
               <span class="text-small" *ngIf="email.errors?.['required'] && email.touched" >Required</span>
-              <span  class="text-small" *ngIf="email.errors?.['minlength'] && email.touched" >Namwe 5 characters</span>
+              <span  class="text-small" *ngIf="email.errors?.['minlength'] && email.touched" >Name 5 characters</span>
             </p>
-            <p class="text-bold">
+            <p class="text-bold"> 
               <label for="password" >Password</label>
-              <input type="password" class="form-control" placeholder="your password" name="password" id="password" [(ngModel)]="Login.password" required>
+              <input type="password" class="form-control" placeholder="your password" name="password" #password="ngModel" [(ngModel)]="Login.password" required minlength="8">
+              <span *ngIf="password.errors?.['required'] && password.touched">
+                <span *ngIf="password.errors?.['minlength']  && password.touched?.['minlength']">Password must be at least 8 characters</span>
+               reqired
+              </span>
             </p>
+            
             <p class="text-small">
               Having Trouble To Sign In ?
             </p>
             <div class="form-btn d-flex justify-content-center w-100">
-              <button type="submit" class="btn w-100 signup-btn mx-2 text-bold">Sign In</button>
+              <button type="submit" [disabled]="LoginForm.invalid" class="btn w-100 signup-btn mx-2 text-bold" routerLink="/activity">Sign In</button>
               
             </div>
             <hr>
@@ -48,9 +53,9 @@
             
           </div>
              <div class="d-flex justify-content-center w-100 mt-5 " routerLink="/signup">
-                <p class="text-Normal signup-btn px-3 text-fade">
+                <button class="text-Normal btn signup-btn px-3 text-fade">
                    Sign Up first
-                </p>
+                </button>
              </div>
         </form>
         

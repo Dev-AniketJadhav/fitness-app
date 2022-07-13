@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ContentChild, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -11,8 +11,9 @@ type NewType = any;
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  showPassword=false
   @ViewChild('Loginform') Loginform:NgForm;
-
+  @ContentChild(Input) input: Input;
   apiurl="https://angular-projects-73181-default-rtdb.firebaseio.com/"
   Login={
     email:'',
@@ -20,12 +21,7 @@ export class LoginComponent implements OnInit {
     
    }
    
-   headers = new HttpHeaders({'Content-Type': 'application/'})
-
-   options={
-    headers:this.headers
-   }
-
+  
   constructor(private http:HttpClient){
     
   }
@@ -51,6 +47,10 @@ export class LoginComponent implements OnInit {
    getApiData(){
    
    }
+
+
+   
 }
+
 
 
