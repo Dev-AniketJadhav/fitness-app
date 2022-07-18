@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{HttpClient} from '@angular/common/http';
 import { GymDataService } from 'src/app/gym-data.service';
-import{UserData} from '../user-data'
+
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-new-activity',
@@ -10,7 +11,7 @@ import{UserData} from '../user-data'
 })
 export class NewActivityComponent implements OnInit {
   url:'https://angular-projects-73181-default-rtdb.firebaseio.com'
-     public activity=[];  
+     activity=[];  
   dtOptions: DataTables.Settings={};
   constructor(private http:HttpClient,
               private gymdata:GymDataService ) {}
@@ -27,10 +28,10 @@ export class NewActivityComponent implements OnInit {
       serverSide: true,
       processing: true,
      // ajax: 'https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData/data.json',
-     ajax:'https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData.json',
+     ajax:'https://angular-projects-73181-default-rtdb.firebaseio.com/posts.json',
       columns: [{
         title:'Type',
-         data:'FitnessData.Type'
+         data:'Type'
       },
       {
         title:'Time',
@@ -38,13 +39,10 @@ export class NewActivityComponent implements OnInit {
         type: 'date'
       }],
       
-      
+       
     };
    
       
   }
-  gymDataTable(response){
-    console.log(response);
-    
-  }
+  
 }

@@ -9,6 +9,6 @@ export class GymDataService {
 
    }
    getGymData() {
-    return this.http.get('https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData.json   ')
+    return this.http.get('https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData.json')
    }
 }

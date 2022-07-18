@@ -40,7 +40,6 @@ export class StartNewComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.progress);
-    console.log(this.FitnessData)
   }
 
   onStartTraining() {
@@ -57,7 +56,7 @@ export class StartNewComponent implements OnInit {
   }
   sendData(TrainingData: any) {
     console.log(this.TrainingData.value);
-    return this.http.post('https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData.json', this.TrainingData.value,).subscribe((data) => {
+    return this.http.post('https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData.json',this.TrainingData.value,).subscribe((data) => {
 
       console.log(data)
 
