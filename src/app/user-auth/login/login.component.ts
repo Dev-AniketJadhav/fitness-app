@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
-type NewType = any;
+
 
 @Component({
   selector: 'app-login',

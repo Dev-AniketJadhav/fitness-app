@@ -111,5 +111,7 @@
       }
     }
   },
-  "defaultProject": "fitness-app"
+  "cli": {
+    "analytics": false
+  }
 }

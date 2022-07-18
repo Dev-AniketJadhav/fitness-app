@@ -44,21 +44,29 @@ $text-bold: 68px;
     font-size:$text-bold;
     color:#09090d;
     font-weight:bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Comic Sans MS' ;
  }
-body{
-    background-color:#000000
+ html{
+    background: linear-gradient(to right,#604f4c, #31373c); 
+ }
+  body{
+    
+    line-height:1.5 !important;
+    background:none
+   // background: linear-gradient(#604f4c, #31373c),no-repeat;
 }
 .signup-btn{
-   
-    color: rgb(188, 181, 181)
+    //font-family:'Comic Sans MS' ;
+    color: white;
+    background-color: $nav-text;
 }
 .signup-btn:hover{
     color: rgb(0, 0, 0);
-    background-color: $basic-color;
+    
 }
 .nav-item{
     font-weight: bold;
+   // font-family:'Comic Sans MS' ;
     color: white
 }
 .nav-item:hover{
@@ -79,11 +87,14 @@ body{
 .text-normal{
     font-size:22px;
     // color:$basic-color;
-    text-decoration: underline $nav-text;
+   // text-decoration: underline $nav-text;
+   color:whitesmoke;
+    font-family:'popins' ;
 }
 
+
 .text-small{
-    font-size:12px;
+    font-size:14px;
     
     // text-decoration: underline $nav-text;
 }
@@ -92,17 +103,19 @@ body{
 }
 .card{
     border-radius:30px;
+   
     
 }
-
 .card-style{
     
+    background-color:rgba(255, 255, 255, 0.19); ;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    
+    border: 1px solid rgba(255, 255, 255, 0.19);
+    }
 
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
-border: 1px solid rgba(255, 255, 255, 0.19);
-}
 .signup-label{
     background-color:$basic-color;
     border-radius:20px;
@@ -115,7 +128,7 @@ mat-tab{
     color: white;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 .mat-tab-label{
     color: whitesmoke;
 }

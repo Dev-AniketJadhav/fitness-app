@@ -1,0 +1,53 @@
+
+@import "~swiper/css";
+@import "~swiper/css/effect-flip";
+@import "~swiper/css/pagination";
+@import "~swiper/css/navigation";
+
+
+
+.nav-logo{
+    height:38px;
+    width:40px;
+    cursor: pointer;
+}
+.banner-text{
+    color:white;
+    font-size:88px;
+    font-weight:bold;
+     line-height:1.2;
+     font-family:'popins' ;
+}
+.banner-subtitle{
+    color:white;
+    font-size:48px;
+    font-weight:bold;
+     line-height:1.2;
+     font-family:'popins' ;
+}
+.swiper {
+    width:100%;
+    // width: 300px;
+    // height: 300px;
+    padding: 30px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    // width: 300px;
+    // height: 300px;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+  
+    .card-heading{
+        color:white;
+    font-size:22px;
+     line-height:1.2;
+     font-family:'popins' ;
+    }
