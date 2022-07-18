@@ -24,15 +24,18 @@ export class NewActivityComponent implements OnInit {
     })
     
     this.dtOptions={
+      serverSide: true,
+      processing: true,
      // ajax: 'https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData/data.json',
      ajax:'https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData.json',
       columns: [{
         title:'Type',
-         data:'Type'
+         data:'FitnessData.Type'
       },
       {
         title:'Time',
-        data:'time'
+        data:'time',
+        type: 'date'
       }],
       
       

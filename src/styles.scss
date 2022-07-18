@@ -95,6 +95,8 @@ $text-bold: 68px;
 
 .text-small{
     font-size:14px;
+    font-weight:light;
+    color: #bebebe;
     
     // text-decoration: underline $nav-text;
 }
@@ -141,8 +143,8 @@ html, body { height: 100%; }
 }
 .banner-subtitle{
     color:white;
-    font-size:48px;
-    font-weight:bold;
+    font-size:38px;
+   // font-weight:bold;
      line-height:1.2;
-     font-family:'popins' ;
+    // font-family:'popins' ;
 }
