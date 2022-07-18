@@ -11,20 +11,7 @@
     width:40px;
     cursor: pointer;
 }
-.banner-text{
-    color:white;
-    font-size:88px;
-    font-weight:bold;
-     line-height:1.2;
-     font-family:'popins' ;
-}
-.banner-subtitle{
-    color:white;
-    font-size:48px;
-    font-weight:bold;
-     line-height:1.2;
-     font-family:'popins' ;
-}
+
 .swiper {
     width:100%;
     // width: 300px;
@@ -50,4 +37,8 @@
     font-size:22px;
      line-height:1.2;
      font-family:'popins' ;
+    }
+    .fade-text{
+      font-weight:light !important;
+      color:whitesmoke;
     }
