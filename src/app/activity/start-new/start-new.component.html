@@ -14,7 +14,7 @@
     </div>
 
     <div class="col-md-4">
-      <div class="card card-style" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <div class="card card-style" data-bs-toggle="modal" data-bs-target="#lowerbody">
         <div class="card-title mt-3">
           <h1>
             LOWER BODY WORKOUT
@@ -103,6 +103,52 @@
             [(ngModel)]="FitnessData.Type">
 
             <option *ngFor="let value of upperbody">{{value}}</option>
+            <!-- 
+                    <option value="biceps">biceps</option>
+                    <option value="triceps">triceps</option>
+                    <option value="chest">chest</option>
+                    <option value="shoulder">shoulder</option> -->
+
+
+             
+
+          </select>
+          <div class="select-time">
+            <label for="time" class="form-label">Choose Time For Exercise</label>
+            <input type="number" class="form-control" name="time" #time="ngModel" [(ngModel)]="FitnessData.time">
+          </div>
+          <div class="spinner w-100 d-flex justify-content-center">
+            <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner>
+            <p>
+              {{progress}}%
+            </p>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+      </div>
+      <div class="modal-footer w-100 d-flex justify-content-center">
+        <button type="button" class="btn btn-danger" (click)="onStop()">Stop</button>
+        <button type="button" class="btn btn-success" (click)="onStartTraining()">Start</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade w-100 " id="lowerbody" tabindex="-1" aria-labelledby="exampleModalLabel-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel-1">Lower Body</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form #TrainingData="ngForm" (ngSubmit)="sendData(TrainingData)" *ngIf="this.FitnessData">
+          <select class="form-select" aria-label="Default select example" name="Type" #Type="ngModel"
+            [(ngModel)]="FitnessData.Type">
+
+            <option *ngFor="let values of lowerbody">{{values}}</option>
             <!-- 
                     <option value="biceps">biceps</option>
                     <option value="triceps">triceps</option>

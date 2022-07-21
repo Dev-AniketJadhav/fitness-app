@@ -28,7 +28,7 @@ export class NewActivityComponent implements OnInit {
       serverSide: true,
       processing: true,
      // ajax: 'https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData/data.json',
-     ajax:'https://angular-projects-73181-default-rtdb.firebaseio.com/posts.json',
+      ajax:'https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData.json',
       columns: [{
         title:'Type',
          data:'Type'
@@ -38,8 +38,6 @@ export class NewActivityComponent implements OnInit {
         data:'time',
         type: 'date'
       }],
-      
-       
     };
    
       

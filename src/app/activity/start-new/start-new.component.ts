@@ -23,15 +23,16 @@ export class StartNewComponent implements OnInit {
     'triceps',
     'shoulder',
     'chest'
-  ]
+  ];
+  lowerbody: [
+    'upper legs',
+    'lower legs',
+    'idk legs',
+    'no legs'
+  ];
   options = {
 
-    lowerbody: [
-      'upper legs',
-      'lower legs',
-      'idk legs',
-      'no legs'
-    ],
+    
   }
 
 

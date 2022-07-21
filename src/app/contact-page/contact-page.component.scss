@@ -20,3 +20,21 @@ section{
     height:55vh;    
     position:relative;
 }
+.join-now{
+    background-color: #ec7d40;
+    width: 100%;
+    height: 100px;
+
+    background-color:rgba(255, 255, 255, 0.19); ;
+    
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    
+    border: 1px solid rgba(255, 255, 255, 0.19);
+}
+.contact-btn{
+    background-color: #f46c4a;
+    color: white;
+}
+.form-control-plaintext {
+border: none !important;
+}
