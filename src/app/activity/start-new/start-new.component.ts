@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
-import { UserData } from '../user-data';
+
 
 @Component({
   selector: 'app-start-new',
@@ -24,17 +24,13 @@ export class StartNewComponent implements OnInit {
     'shoulder',
     'chest'
   ];
-  lowerbody: [
+  lowerbody= [
     'upper legs',
     'lower legs',
     'idk legs',
     'no legs'
   ];
-  options = {
-
-
-  }
-
+ 
 
   constructor(public dialog: MatDialog,
     private http: HttpClient) { }
