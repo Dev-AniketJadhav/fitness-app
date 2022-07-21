@@ -2,7 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import{HttpClient} from '@angular/common/http';
 import { GymDataService } from 'src/app/gym-data.service';
 
-import { data } from 'jquery';
+class DataTablesResponse {
+  data: any[];
+  draw: number;
+  recordsFiltered: number;
+  recordsTotal: number;
+}
+
+interface Person {
+  id: number;
+  firstName: string;
+  lastName: string;
+}
 
 @Component({
   selector: 'app-new-activity',
@@ -12,35 +23,45 @@ import { data } from 'jquery';
 export class NewActivityComponent implements OnInit {
   url:'https://angular-projects-73181-default-rtdb.firebaseio.com'
      activity=[];  
-  dtOptions: DataTables.Settings={};
+     dtOptions: DataTables.Settings = {};
+     persons: Person[];
+   
   constructor(private http:HttpClient,
               private gymdata:GymDataService ) {}
 
-  ngOnInit(): void {
-    this.gymdata.getGymData().subscribe((response:any)=>{
-      console.log(response);
-      this.activity = response
-      console.log(this.activity);
-      
-    })
-    
-    this.dtOptions={
-      serverSide: true,
-      processing: true,
-     // ajax: 'https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData/data.json',
-      ajax:'https://angular-projects-73181-default-rtdb.firebaseio.com/fitnessData.json',
-      columns: [{
-        title:'Type',
-         data:'Type'
-      },
-      {
-        title:'Time',
-        data:'time',
-        type: 'date'
-      }],
-    };
-   
-      
-  }
+              ngOnInit(): void {
+                this.dtOptions = {
+                  pagingType: 'full_numbers',
+                  pageLength: 10,
+                  serverSide: true,
+                  processing: true,
+                  ajax: (dataTablesParameters: any, callback) => {
+                    dataTablesParameters.minNumber = dataTablesParameters.start + 1;
+                    dataTablesParameters.maxNumber =
+                      dataTablesParameters.start + dataTablesParameters.length;
+                    console.log(
+                      dataTablesParameters.minNumber,
+                      dataTablesParameters.maxNumber
+                    );
+                    console.log('All Params', dataTablesParameters);
+                    this.http
+                      .post<DataTablesResponse>(
+                        'https://angular-datatables-demo-server.herokuapp.com/',
+                        dataTablesParameters,
+                        {}
+                      )
+                      .subscribe(resp => {
+                        this.persons = resp.data;
+            
+                        callback({
+                          recordsTotal: resp.recordsTotal,
+                          recordsFiltered: resp.recordsFiltered,
+                          data: []
+                        });
+                      });
+                  },
+                  columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' }]
+                };
+              }
   
 }
