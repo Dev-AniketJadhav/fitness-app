@@ -13,16 +13,16 @@
 
 
         <form class="card-body mt-3" #LoginForm="ngForm"(ngSubmit)="onSubmit(LoginForm)" >
-          <div class="card-form  justify-content-center flex-column text-center">
-            <p class="text-bold">
-              <label for="email " class="text-white">Email Id</label>
-              <input  type="email"  class="form-control" minlength="5" placeholder="your email" #email ="ngModel"name="email" [(ngModel)]="Login.email" required>
+          <div class="card-form  justify-content-center flex-column text-center ">
+            <p class="text-bold form-floating mb-3">
+              <input  type="email" id="floatingInput"  class="form-control" minlength="5" placeholder="your email" #email ="ngModel"name="email" [(ngModel)]="Login.email" required>
+              <label for="floatingInput">Email address</label>
               <span class="text-small" *ngIf="email.errors?.['required'] && email.touched" >Required</span>
               <span  class="text-small" *ngIf="email.errors?.['minlength'] && email.touched" >Name 5 characters</span>
             </p>
-            <p class="text-bold"> 
-              <label for="password" class="text-white" >Password</label>
+            <p class="text-bold form-floating mb-3"> 
               <input type="password" class="form-control" placeholder="your password" name="password" #password="ngModel" [(ngModel)]="Login.password" required minlength="8">
+              <label for="floatingPassword">Password</label>
               <span *ngIf="password.errors?.['required'] && password.touched">
                 <span *ngIf="password.errors?.['minlength']  && password.touched?.['minlength']">Password must be at least 8 characters</span>
                reqired
