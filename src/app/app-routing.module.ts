@@ -10,14 +10,14 @@ import { LoginComponent } from './user-auth/login/login.component';
 import { SignupComponent } from './user-auth/signup/signup.component';
 
 const routes: Routes = [
-  {path:'',component: LandingPageComponent},
-  {path: 'login' ,component: LoginComponent},
-  {path:'signup',component:SignupComponent},
-  {path:'activity' ,component:ActivityComponent, canActivate:[AuthGuard] },
-   {path:'past-activity', component:PastActivityComponent},
-   {path:'start-new', component:StartNewComponent},
-   {path:'contact',component:ContactPageComponent}
-  
+  { path: '', component: LandingPageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard] },
+  { path: 'past-activity', component: PastActivityComponent },
+  { path: 'start-new', component: StartNewComponent },
+  { path: 'contact', component: ContactPageComponent }
+
 ];
 
 @NgModule({
