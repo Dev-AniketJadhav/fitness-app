@@ -47,7 +47,8 @@ $text-bold: 68px;
     font-family:'Comic Sans MS' ;
  }
  html{
-    background: linear-gradient(to right,#604f4c, #31373c); 
+   // background: linear-gradient(to right,#604f4c, #31373c); 
+   background-color: #09090d;
  }
   body{
     
@@ -148,3 +149,7 @@ html, body { height: 100%; }
      line-height:1.2;
     // font-family:'popins' ;
 }
+.test-mute{
+    color:rgb(162, 159, 159)
+  }
+ 
