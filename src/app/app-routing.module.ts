@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard] },
   { path: 'past-activity', component: PastActivityComponent },
   { path: 'start-new', component: StartNewComponent },
-  { path: 'contact', component: ContactPageComponent }
+  { path: 'contact', component: ContactPageComponent },
+  { path: 'payments', loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsModule) }
 
 ];
 
