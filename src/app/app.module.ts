@@ -18,6 +18,7 @@ import { DataTablesModule } from "angular-datatables";
 import { GymDataService } from './gym-data.service';
 import { SwiperModule } from "swiper/angular";
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { NearGymComponent } from './near-gym/near-gym.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     PastActivityComponent,
     StartNewComponent,
     ContactPageComponent,
+    NearGymComponent,
     
   ],
   imports: [
