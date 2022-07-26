@@ -19,7 +19,19 @@ import { GymDataService } from './gym-data.service';
 import { SwiperModule } from "swiper/angular";
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { NearGymComponent } from './near-gym/near-gym.component';
-//import { AngularFireModule } from "@angular/fire";
+import { AngularFireModule } from '@angular/fire/compat';
+import{AngularFireAuthModule} from '@angular/fire/compat/auth'
+import { FirebaseService } from './services/firebase.service';
+
+const config = {
+  apiKey: '<your-key>',
+  authDomain: '<your-project-authdomain>',
+  databaseURL: '<your-database-URL>',
+  projectId: '<your-project-id>',
+  storageBucket: '<your-storage-bucket>',
+  messagingSenderId: '<your-messaging-sender-id>'
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +48,10 @@ import { NearGymComponent } from './near-gym/near-gym.component';
     
   ],
   imports: [
+    
     BrowserModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -44,10 +59,10 @@ import { NearGymComponent } from './near-gym/near-gym.component';
     MaterialModule,
     DataTablesModule,
     SwiperModule,
-    
+  
 
   ],
-  providers: [GymDataService],
+  providers: [GymDataService,FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,10 +8,16 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './user-auth/login/login.component';
 import { SignupComponent } from './user-auth/signup/signup.component';
+import { canActivate,redirectUnauthorizedTo,redirectLoggedInTo } from '@angular/fire/auth-guard';
+
+const redirectToLogIn=() => redirectUnauthorizedTo(['login'])
+const redirectToHomePage=()=>redirectLoggedInTo(['home'])
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'home', component: LandingPageComponent, 
+    ...canActivate(redirectToLogIn)},
+  { path: 'login', component: LoginComponent,
+...canActivate(redirectToHomePage) },
   { path: 'signup', component: SignupComponent },
   { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard] },
   { path: 'past-activity', component: PastActivityComponent },
