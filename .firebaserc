@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-projects-73181": {
+      "hosting": {
+        "fitness-app": [
+          "angular-projects-73181"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-projects-73181"
+  }
+}

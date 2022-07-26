@@ -22,6 +22,9 @@ import { NearGymComponent } from './near-gym/near-gym.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import{AngularFireAuthModule} from '@angular/fire/compat/auth'
 import { FirebaseService } from './services/firebase.service';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 const config = {
   apiKey: '<your-key>',
@@ -59,7 +62,9 @@ const config = {
     MaterialModule,
     DataTablesModule,
     SwiperModule,
-  
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    
 
   ],
   providers: [GymDataService,FirebaseService],

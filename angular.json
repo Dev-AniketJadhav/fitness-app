@@ -107,6 +107,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "fitness-app:build:production",
+            "firebaseProject": "angular-projects-73181",
+            "firebaseHostingSite": "angular-projects-73181"
+          }
         }
       }
     }

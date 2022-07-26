@@ -11,13 +11,13 @@ import { SignupComponent } from './user-auth/signup/signup.component';
 import { canActivate,redirectUnauthorizedTo,redirectLoggedInTo } from '@angular/fire/auth-guard';
 
 const redirectToLogIn=() => redirectUnauthorizedTo(['login'])
-const redirectToHomePage=()=>redirectLoggedInTo(['home'])
+const redirectToHome=()=>redirectLoggedInTo(['home'])
 
 const routes: Routes = [
   { path: 'home', component: LandingPageComponent, 
     ...canActivate(redirectToLogIn)},
   { path: 'login', component: LoginComponent,
-...canActivate(redirectToHomePage) },
+...canActivate(redirectToHome) },
   { path: 'signup', component: SignupComponent },
   { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard] },
   { path: 'past-activity', component: PastActivityComponent },
