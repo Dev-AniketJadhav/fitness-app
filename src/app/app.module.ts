@@ -25,6 +25,7 @@ import { FirebaseService } from './services/firebase.service';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const config = {
   apiKey: '<your-key>',
@@ -48,6 +49,7 @@ const config = {
     StartNewComponent,
     ContactPageComponent,
     NearGymComponent,
+    PageNotFoundComponent,
     
   ],
   imports: [

@@ -9,21 +9,26 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './user-auth/login/login.component';
 import { SignupComponent } from './user-auth/signup/signup.component';
 import { canActivate,redirectUnauthorizedTo,redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const redirectToLogIn=() => redirectUnauthorizedTo(['login'])
 const redirectToHome=()=>redirectLoggedInTo(['home'])
 
 const routes: Routes = [
   { path: 'home', component: LandingPageComponent, 
-    ...canActivate(redirectToLogIn)},
+  data:{animation:'isRight'} ,
+  // ...canActivate(redirectToLogIn)
+  },
   { path: 'login', component: LoginComponent,
-...canActivate(redirectToHome) },
+...canActivate(redirectToHome),
+ },
   { path: 'signup', component: SignupComponent },
-  { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard] },
+  { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard], data:{animation:'isRight'} },
   { path: 'past-activity', component: PastActivityComponent },
   { path: 'start-new', component: StartNewComponent },
   { path: 'contact', component: ContactPageComponent },
-  { path: 'payments', loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsModule) }
+  { path: 'payments', loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsModule) },
+  {path:'**' ,component:PageNotFoundComponent}
 
 ];
 
