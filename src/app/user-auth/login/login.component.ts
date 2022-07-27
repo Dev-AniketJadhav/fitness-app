@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Router } from '@angular/router';
+import { emailVerified } from '@angular/fire/auth-guard';
 
 
 
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   isSignedIn=false;
   showPassword=false
-  @ViewChild('Loginform') Loginform:NgForm;
+  @ViewChild('Loginform') Loginform:any;
   @ContentChild(Input) input: Input;
   apiurl="https://angular-projects-73181-default-rtdb.firebaseio.com/"
   Login={
@@ -30,11 +31,21 @@ export class LoginComponent implements OnInit {
     
   }
   ngOnInit( ) {
+  
    
     if(localStorage.getItem('user')!==null)
     this.isSignedIn=true;
     else
     this.isSignedIn=false;
+
+    
+  }
+  get email(){
+    return this.Loginform.get('email')
+  }
+
+  get password(){
+    return this.Loginform.get('password')
   }
 // async onSignup(email:string,password:string){
 //   await this.firebaseService.signin(email,password)
@@ -48,13 +59,16 @@ export class LoginComponent implements OnInit {
     //const{email,password}=this.Loginform.value;
     //this.firebaseService.signin(email,password)
    
-    
-    return this.http.post('https://angular-projects-73181-default-rtdb.firebaseio.com/post.json',Loginform.form.value).subscribe(data => {
-     this.router.navigate(['/','activity'])
-     console.log(data);
+    const {email,password}=this.Loginform.value
+     this.http.post('https://angular-projects-73181-default-rtdb.firebaseio.com/post.json',this.Loginform.value).subscribe(data => {
      
+     console.log(data);
+   
   })
-    
+  this.firebaseService.login(email,password).subscribe(()=>{
+    this.router.navigate(['/home'])
+  })
+   
 
    
     
