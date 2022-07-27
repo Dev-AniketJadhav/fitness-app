@@ -23,7 +23,7 @@ const routes: Routes = [
 ...canActivate(redirectToHome),
  },
   { path: 'signup', component: SignupComponent },
-  { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard], data:{animation:'isRight'} },
+  { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard],  },
   { path: 'past-activity', component: PastActivityComponent },
   { path: 'start-new', component: StartNewComponent },
   { path: 'contact', component: ContactPageComponent },
