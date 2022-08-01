@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { LoginComponent } from './user-auth/login/login.component';
 import { SignupComponent } from './user-auth/signup/signup.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import{FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ActivityComponent } from './activity/activity.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
@@ -20,21 +20,17 @@ import { SwiperModule } from "swiper/angular";
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { NearGymComponent } from './near-gym/near-gym.component';
 import { AngularFireModule } from '@angular/fire/compat';
-import{AngularFireAuthModule} from '@angular/fire/compat/auth'
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { FirebaseService } from './services/firebase.service';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+//import {AngularFirestore} from 'angularfire2/firestore'
+//import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+//import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+//import {AngularFireModule} from "angularfire2";
+import { environment } from '../environments/environment'
+//import { AngularFirestoreModule } from 'angularfire2/firestore'
 
-const config = {
-  apiKey: '<your-key>',
-  authDomain: '<your-project-authdomain>',
-  databaseURL: '<your-database-URL>',
-  projectId: '<your-project-id>',
-  storageBucket: '<your-storage-bucket>',
-  messagingSenderId: '<your-messaging-sender-id>'
-};
 
 @NgModule({
   declarations: [
@@ -50,12 +46,9 @@ const config = {
     ContactPageComponent,
     NearGymComponent,
     PageNotFoundComponent,
-    
   ],
   imports: [
-    
-    BrowserModule,
-    AngularFireModule.initializeApp(config),
+     BrowserModule,
     AngularFireAuthModule,
     AppRoutingModule,
     FormsModule,
@@ -64,12 +57,13 @@ const config = {
     MaterialModule,
     DataTablesModule,
     SwiperModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    
+    //AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase)
 
   ],
-  providers: [GymDataService,FirebaseService],
+  providers: [GymDataService, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

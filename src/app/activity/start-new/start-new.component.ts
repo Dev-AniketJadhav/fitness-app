@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
-
+// import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-start-new',
@@ -30,12 +30,17 @@ export class StartNewComponent implements OnInit {
     'idk legs',
     'no legs'
   ];
- 
+ //private db:AngularFirestore
 
   constructor(public dialog: MatDialog,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // this.db.collection('UserExeData').valueChanges().subscribe(result=>{
+    //   console.log(result);
+      
+    // })
     console.log(this.progress);
   }
 
